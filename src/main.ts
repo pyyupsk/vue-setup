@@ -19,7 +19,7 @@ if (import.meta.env.PROD) {
 app.config.errorHandler = (err, instance, info) => {
   if (import.meta.env.DEV) {
     console.error("[Vue] Vue Error:", {
-      component: instance?.$options.name || "Anonymous",
+      component: instance?.$options.name ?? "Anonymous",
       error: err,
       info,
       timestamp: new Date().toISOString(),
