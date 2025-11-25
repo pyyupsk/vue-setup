@@ -66,7 +66,7 @@ bun run typecheck    # Type checking
 
 ## 📁 Project Structure
 
-```
+```files
 vue-setup/
 ├── public/          # Static assets
 ├── src/
