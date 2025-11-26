@@ -1,46 +1,48 @@
-# Vue Setup
+<div align="center">
 
-> Clean, fast Vue 3 + Vite + TS starter with routing, Tailwind & shadcn-vue.
+# Vue.js Setup
 
-A modern Vue.js starter template that combines the best developer experience with production-ready features. Built for rapid prototyping and scalable applications.
+**A modern Vue.js starter template with Vite, TypeScript, Tailwind CSS, and best practices built-in.**
 
-## ✨ Features
+[![Vue](https://img.shields.io/badge/Vue-3.5-42b883?logo=vue.js)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646cff?logo=vite)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-- ⚡ **Vue 3** - Latest Vue with Composition API and `<script setup>`
-- 🚀 **Vite** - Lightning fast development with HMR
-- 📘 **TypeScript** - Full type safety with excellent DX
-- 🛣️ **Vue Router** - File-based routing system
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 🧩 **shadcn-vue** - Beautiful, accessible components
-- 🔧 **ESLint + Prettier** - Code quality and formatting
-- 📦 **Auto-imports** - Effortless development workflow
+[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack) • [Project Structure](#-project-structure) • [Contributing](#-contributing)
 
-## 🛠️ Tech Stack
+</div>
 
-| Category        | Technology       |
-| --------------- | ---------------- |
-| Framework       | Vue 3            |
-| Build Tool      | Vite             |
-| Language        | TypeScript       |
-| Styling         | Tailwind CSS     |
-| Components      | shadcn-vue       |
-| Routing         | Vue Router       |
-| Package Manager | Bun              |
-| Code Quality    | ESLint, Prettier |
+---
 
-## 🚀 Quick Start
+## Features
+
+- **Vue 3** - Latest Vue with Composition API and `<script setup>`
+- **Vite** - Lightning fast development with HMR
+- **TypeScript** - Full type safety with excellent DX
+- **Vue Router** - File-based routing system
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn-vue** - Beautiful, accessible components
+- **VueUse** - Essential Vue composition utilities
+- **ESLint + Prettier** - Code quality and formatting
+- **Auto-imports** - Effortless development workflow
+
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ or Bun
-- Git
+- [Node.js](https://nodejs.org/) 18+ or [Bun](https://bun.sh/)
+- [Git](https://git-scm.com/)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/pyyupsk/vue-setup.git
-cd vue-setup
+git clone https://github.com/pyyupsk/vue-setup.git my-app
+
+# Navigate to the project
+cd my-app
 
 # Install dependencies
 bun install
@@ -49,43 +51,60 @@ bun install
 bun run dev
 ```
 
+Your app will be running at `http://localhost:5173`
+
 ### Available Scripts
 
-```bash
-# Development
-bun run dev          # Start dev server
-bun run build        # Build for production
-bun run preview      # Preview production build
+| Script              | Description                  |
+| ------------------- | ---------------------------- |
+| `bun run dev`       | Start development server     |
+| `bun run build`     | Build for production         |
+| `bun run preview`   | Preview production build     |
+| `bun run format`    | Format code with Prettier    |
+| `bun run lint`      | Lint code with ESLint        |
+| `bun run lint:fix`  | Fix linting issues           |
+| `bun run typecheck` | Run TypeScript type checking |
 
-# Code Quality
-bun run format       # Format code
-bun run lint         # Lint code
-bun run lint:fix     # Fix linting issues
-bun run typecheck    # Type checking
-```
+## Tech Stack
 
-## 📁 Project Structure
+| Category        | Technology                                                      |
+| --------------- | --------------------------------------------------------------- |
+| Framework       | [Vue 3](https://vuejs.org/)                                     |
+| Build Tool      | [Vite](https://vitejs.dev/)                                     |
+| Language        | [TypeScript](https://www.typescriptlang.org/)                   |
+| Styling         | [Tailwind CSS](https://tailwindcss.com/)                        |
+| Components      | [shadcn-vue](https://www.shadcn-vue.com/)                       |
+| Utilities       | [VueUse](https://vueuse.org/)                                   |
+| Routing         | [Vue Router](https://router.vuejs.org/)                         |
+| Package Manager | [Bun](https://bun.sh/)                                          |
+| Code Quality    | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) |
 
-```files
+## Project Structure
+
+```text
 vue-setup/
-├── public/          # Static assets
+├── public/                # Static assets (favicon, og-image)
 ├── src/
-│   ├── assets/      # Static assets
-│   ├── components/  # Vue components
-│   ├── lib/         # Library code
-│   ├── pages/       # Route pages
-│   ├── app.vue      # Root component
-│   ├── main.ts      # Application entry
-│   └── router.ts    # Vue Router configuration
-├── index.html       # HTML template
-└── vite.config.ts   # Vite configuration
+│   ├── assets/
+│   │   └── css/           # Global styles and Tailwind config
+│   ├── components/
+│   │   ├── icon/          # Icon components
+│   │   ├── layout/        # Layout components (Header, Footer)
+│   │   ├── sections/      # Page sections (Hero, Features, CTA)
+│   │   └── ui/            # UI components (Button, Card, Badge)
+│   ├── constants/         # Constants and configuration
+│   ├── lib/               # Utility functions
+│   ├── pages/             # Route pages (file-based routing)
+│   ├── app.vue            # Root component
+│   ├── main.ts            # Application entry
+│   └── router.ts          # Vue Router configuration
+├── index.html             # HTML template
+└── vite.config.ts         # Vite configuration
 ```
 
-## 🎨 Styling
+## Contributing
 
-This template uses Tailwind CSS with shadcn-vue components for a beautiful and consistent design system. All components are fully customizable and follow accessibility best practices.
-
-## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -93,14 +112,23 @@ This template uses Tailwind CSS with shadcn-vue components for a beautiful and c
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📚 Resources
+## Resources
 
 - [Vue 3 Documentation](https://vuejs.org/)
 - [Vite Documentation](https://vitejs.dev/)
-- [TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup)
+- [TypeScript Guide](https://vuejs.org/guide/typescript/overview.html)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [shadcn-vue](https://www.shadcn-vue.com/)
+- [VueUse](https://vueuse.org/)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+Built with Vue.js
+
+</div>

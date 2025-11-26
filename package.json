@@ -1,8 +1,29 @@
 {
   "name": "vue-setup",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern Vue.js starter template with Vite, TypeScript, Tailwind CSS, and best practices built-in.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pyyupsk/vue-setup.git"
+  },
+  "homepage": "https://github.com/pyyupsk/vue-setup#readme",
+  "bugs": {
+    "url": "https://github.com/pyyupsk/vue-setup/issues"
+  },
+  "author": "pyyupsk",
+  "license": "MIT",
   "private": true,
+  "keywords": [
+    "vue",
+    "vue3",
+    "vite",
+    "typescript",
+    "tailwindcss",
+    "shadcn-vue",
+    "starter-template",
+    "boilerplate"
+  ],
   "scripts": {
     "build": "vue-tsc -b && vite build",
     "dev": "vite",

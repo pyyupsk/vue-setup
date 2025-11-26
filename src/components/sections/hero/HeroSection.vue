@@ -8,7 +8,9 @@ import { cn } from "@/lib/utils";
 </script>
 
 <template>
-  <section class="relative z-10 container pt-20 pb-32 md:pt-32 md:pb-40">
+  <section
+    class="relative z-10 container grid min-h-screen place-items-center pt-20 pb-32 md:pt-32 md:pb-40"
+  >
     <div class="mx-auto max-w-4xl text-center">
       <!-- Badge -->
       <Badge
