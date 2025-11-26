@@ -7,20 +7,20 @@ export const router = createRouter({
   scrollBehavior(_to, _from, savedPosition) {
     return savedPosition ?? { top: 0 };
   },
-  stringifyQuery: (query) => query.toString(),
+  stringifyQuery: (query) => new URLSearchParams(query as Record<string, string>).toString(),
 });
 
 router.beforeEach(async (to, _from, next) => {
   // Mark route navigation start time
-  window.performance?.mark(`route-${to.name}-start`);
+  globalThis.performance?.mark(`route-${to.name}-start`);
   next();
 });
 
 router.afterEach((to) => {
   // Measure route navigation performance
-  if (window.performance) {
-    window.performance.mark(`route-${to.name}-end`);
-    window.performance.measure(
+  if (globalThis.performance) {
+    globalThis.performance.mark(`route-${to.name}-end`);
+    globalThis.performance.measure(
       `route-${to.name}`,
       `route-${to.name}-start`,
       `route-${to.name}-end`,
