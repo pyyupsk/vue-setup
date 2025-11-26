@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.woff2") format("woff2");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.woff2") format("woff2");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 100 800;
   font-display: swap;
-  src: url("/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.woff2") format("woff2");
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-style: italic;
   font-weight: 100 800;
   font-display: swap;
-  src: url("/fonts/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.woff2") format("woff2");
 }
 
 @theme {
