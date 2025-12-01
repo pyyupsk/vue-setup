@@ -5,8 +5,8 @@
 **A modern Vue.js starter template with Vite, TypeScript, Tailwind CSS, and best practices built-in.**
 
 [![Vue](https://img.shields.io/badge/Vue-3.5-42b883?logo=vue.js)](https://vuejs.org/)
-[![Vite](https://img.shields.io/badge/Vite-6-646cff?logo=vite)](https://vitejs.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -26,7 +26,8 @@
 - **shadcn-vue** - Beautiful, accessible components
 - **VueUse** - Essential Vue composition utilities
 - **ESLint + Prettier** - Code quality and formatting
-- **Auto-imports** - Effortless development workflow
+- **PWA Ready** - Offline support with service workers
+- **Compression** - Gzip and Brotli compressed builds
 
 ## Quick Start
 
@@ -51,7 +52,7 @@ bun install
 bun run dev
 ```
 
-Your app will be running at `http://localhost:5173`
+Your app will be running at `http://localhost:3000`
 
 ### Available Scripts
 
@@ -67,23 +68,25 @@ Your app will be running at `http://localhost:5173`
 
 ## Tech Stack
 
-| Category        | Technology                                                      |
-| --------------- | --------------------------------------------------------------- |
-| Framework       | [Vue 3](https://vuejs.org/)                                     |
-| Build Tool      | [Vite](https://vitejs.dev/)                                     |
-| Language        | [TypeScript](https://www.typescriptlang.org/)                   |
-| Styling         | [Tailwind CSS](https://tailwindcss.com/)                        |
-| Components      | [shadcn-vue](https://www.shadcn-vue.com/)                       |
-| Utilities       | [VueUse](https://vueuse.org/)                                   |
-| Routing         | [Vue Router](https://router.vuejs.org/)                         |
-| Package Manager | [Bun](https://bun.sh/)                                          |
-| Code Quality    | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) |
+| Category        | Technology                                                                    |
+| --------------- | ----------------------------------------------------------------------------- |
+| Framework       | [Vue 3](https://vuejs.org/)                                                   |
+| Build Tool      | [Vite 7](https://vitejs.dev/)                                                 |
+| Language        | [TypeScript](https://www.typescriptlang.org/)                                 |
+| Styling         | [Tailwind CSS 4](https://tailwindcss.com/)                                    |
+| Components      | [shadcn-vue](https://www.shadcn-vue.com/)                                     |
+| Utilities       | [VueUse](https://vueuse.org/)                                                 |
+| Routing         | [Vue Router](https://router.vuejs.org/)                                       |
+| PWA             | [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)                          |
+| Compression     | [vite-plugin-compression2](https://github.com/nonzzz/vite-plugin-compression) |
+| Package Manager | [Bun](https://bun.sh/)                                                        |
+| Code Quality    | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)               |
 
 ## Project Structure
 
 ```text
 vue-setup/
-├── public/                # Static assets (favicon, og-image)
+├── public/                # Static assets (favicon, PWA icons)
 ├── src/
 │   ├── assets/
 │   │   └── css/           # Global styles and Tailwind config
