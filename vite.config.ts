@@ -10,13 +10,14 @@ import { VitePWA as pwa } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/vue-setup/",
   plugins: [
     router(),
     vue(),
     tailwindcss(),
     sitemap({
       generateRobotsTxt: true,
-      hostname: "https://vue.fasu.dev",
+      hostname: "https://pyyupsk.github.io/vue-setup",
     }),
     compression({
       algorithms: ["gzip", "brotliCompress"],
@@ -49,7 +50,7 @@ export default defineConfig({
         ],
         name: "Vue.js Setup - Modern Vue 3 Starter Template",
         short_name: "Vue Setup",
-        start_url: "/",
+        start_url: "/vue-setup/",
         theme_color: "#41b883",
       },
       registerType: "autoUpdate",
