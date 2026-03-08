@@ -1,7 +1,7 @@
 name: Auto-merge Dependabot
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - synchronize
@@ -10,16 +10,27 @@ on:
       - unlabeled
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 jobs:
-  auto-merge:
+  validate-and-update-lockfile:
     runs-on: ubuntu-latest
     if: |
       github.actor == 'dependabot[bot]' &&
       startsWith(github.event.pull_request.title, 'chore(deps):')
+    outputs:
+      is-dependabot: ${{ steps.check-actor.outputs.is-dependabot }}
     steps:
+      - name: Verify actor is Dependabot
+        id: check-actor
+        run: |
+          if [ "${{ github.actor }}" = "dependabot[bot]" ]; then
+            echo "is-dependabot=true" >> $GITHUB_OUTPUT
+          else
+            echo "is-dependabot=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -45,6 +56,14 @@ jobs:
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
           file_pattern: bun.lock
 
+  auto-merge:
+    needs: validate-and-update-lockfile
+    runs-on: ubuntu-latest
+    if: needs.validate-and-update-lockfile.outputs.is-dependabot == 'true'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
       - name: Wait for CI checks to pass
         id: wait-for-ci
         uses: lewagon/wait-on-check-action@74049309dfeff245fe8009a0137eacf28136cb3c # v1.5.0
