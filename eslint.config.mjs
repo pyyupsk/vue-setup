@@ -1,11 +1,12 @@
 import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import perfectionist from "eslint-plugin-perfectionist";
 import prettier from "eslint-plugin-prettier/recommended";
 import vue from "eslint-plugin-vue";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-const eslintConfig = tseslint.config(
+const eslintConfig = defineConfig(
   eslint.configs.recommended,
   perfectionist.configs["recommended-natural"],
   tseslint.configs.recommended,
@@ -25,6 +26,7 @@ const eslintConfig = tseslint.config(
     },
     rules: {
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-useless-assignment": "off",
       "vue/multi-word-component-names": "off",
     },
   },
