@@ -12,18 +12,18 @@ export const router = createRouter({
 
 router.beforeEach(async (to, _from, next) => {
   // Mark route navigation start time
-  globalThis.performance?.mark(`route-${to.name}-start`);
+  globalThis.performance?.mark(`route-${String(to.name)}-start`);
   next();
 });
 
 router.afterEach((to) => {
   // Measure route navigation performance
   if (globalThis.performance) {
-    globalThis.performance.mark(`route-${to.name}-end`);
+    globalThis.performance.mark(`route-${String(to.name)}-end`);
     globalThis.performance.measure(
-      `route-${to.name}`,
-      `route-${to.name}-start`,
-      `route-${to.name}-end`,
+      `route-${String(to.name)}`,
+      `route-${String(to.name)}-start`,
+      `route-${String(to.name)}-end`,
     );
   }
 });
