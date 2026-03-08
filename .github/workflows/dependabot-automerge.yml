@@ -1,0 +1,63 @@
+name: Auto-merge Dependabot
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: |
+      github.actor == 'dependabot[bot]' &&
+      startsWith(github.event.pull_request.title, 'chore(deps):')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@ecf28ddc73e819eb6fa29df6b34ef8921c743461 # v2.1.3
+
+      - name: Install dependencies (without frozen lockfile to allow bun.lock update)
+        run: bun install
+
+      - name: Check if bun.lock was updated
+        id: check-lock
+        run: |
+          git diff --exit-code bun.lock || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit updated bun.lock if changed
+        if: steps.check-lock.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        with:
+          commit_message: "chore(deps): update bun.lock"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          file_pattern: bun.lock
+
+      - name: Wait for CI checks to pass
+        id: wait-for-ci
+        uses: lewagon/wait-on-check-action@74049309dfeff245fe8009a0137eacf28136cb3c # v1.5.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 30
+          allowed-conclusions: success
+          running-workflow-name: auto-merge
+
+      - name: Auto-merge PR
+        if: steps.wait-for-ci.outputs.conclusion == 'success'
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} --auto --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
