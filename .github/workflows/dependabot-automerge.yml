@@ -9,16 +9,15 @@ on:
       - labeled
       - unlabeled
 
-permissions:
-  contents: read
-  pull-requests: read
-
 jobs:
   validate-and-update-lockfile:
     runs-on: ubuntu-latest
     if: |
       github.actor == 'dependabot[bot]' &&
       startsWith(github.event.pull_request.title, 'chore(deps):')
+    permissions:
+      contents: read
+      pull-requests: read
     outputs:
       is-dependabot: ${{ steps.check-actor.outputs.is-dependabot }}
     steps:
