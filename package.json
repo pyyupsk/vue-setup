@@ -61,7 +61,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-pkg": "^0.21.2",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "~5.9.3",
+    "typescript": "~6.0.2",
     "typescript-eslint": "^8.56.1",
     "unplugin-unused": "^0.5.7",
     "unplugin-vue-router": "^0.19.2",
